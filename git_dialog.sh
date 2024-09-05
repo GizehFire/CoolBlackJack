@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Prüfe, ob sich das Skript in einem Git-Repository befindet
 if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
     dialog --msgbox "Dieses Skript muss in einem Git-Repository ausgeführt werden." 10 40
@@ -8,7 +7,13 @@ fi
 
 # Funktion zum Hinzufügen von Dateien
 add_files() {
-#    	local files=$(git status --short | awk '{print $2}')
+
+if [ -z "$(git status --short)" ]; then
+  dialog --msgbox "Keine Änderungen vorhanden." 10 40
+  return  # Zurück zum Hauptmenü
+fi
+
+
     local files=$(git status --short | awk '{print $2}' | grep -v '\.godot$' | grep -v '^\.godot/$')
     local IFS=$'\n'
     local options=()
