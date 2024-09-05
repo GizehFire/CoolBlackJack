@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfh7bdu405foc"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_7n05f"]
+[ext_resource type="SpriteFrames" uid="uid://dx253uqksq2f6" path="res://media/CardFrames.tres" id="3_iaqsj"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_7n05f")
+
+[node name="Karten" type="AnimatedSprite2D" parent="."]
+position = Vector2(234, 209)
+sprite_frames = ExtResource("3_iaqsj")
+animation = &"defaults"
+
+[node name="Karten2" type="AnimatedSprite2D" parent="."]
+position = Vector2(357, 211)
+sprite_frames = ExtResource("3_iaqsj")
+animation = &"defaults"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
