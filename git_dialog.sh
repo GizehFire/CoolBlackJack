@@ -53,7 +53,14 @@ while true; do
         3 "Änderungen pushen" \
         4 "Änderungen auflisten" \
         5 "Beenden")
-    
+
+    # Überprüfe den Exit-Status des Dialogs
+    exit_status=$?
+    if [ $exit_status -eq 1 ] || [ $exit_status -eq 255 ]; then
+        clear
+        exit 0  # Skript beenden ohne Meldung
+    fi
+
     case $action in
         1) add_files ;;
         2) commit_changes ;;
