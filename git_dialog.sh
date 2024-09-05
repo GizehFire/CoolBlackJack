@@ -8,11 +8,11 @@ fi
 # Funktion zum Hinzufügen von Dateien
 add_files() {
 
-if [ -z "$(git status --short)" ]; then
-  dialog --msgbox "Keine Änderungen vorhanden." 10 40
-  return  # Zurück zum Hauptmenü
-fi
-
+# Überprüfe, ob Änderungen vorhanden sind
+    if [ -z "$(git status --short | grep -v '\.godot$' | grep -v '^\.godot/$')" ]; then
+        dialog --msgbox "Keine relevanten Änderungen vorhanden." 10 40
+        return  # Zurück zum Hauptmenü
+    fi
 
     local files=$(git status --short | awk '{print $2}' | grep -v '\.godot$' | grep -v '^\.godot/$')
     local IFS=$'\n'
