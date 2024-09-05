@@ -19,9 +19,9 @@ Die Idee für dieses Blackjack-Spiel entstand, weil es schwer ist, ein kostenfre
 
 ## Installation
 
-1. ** Godot installieren**: Lade die neueste Version der Godot Engine herunter und installiere sie. [Godot herunterladen](https://godotengine.org/download)
-2. ** Repository klonen**: bash   git clone https://github.com/dein-benutzername/blackjack-godot.git
-3. ** Projekt in Godot öffnen:** Öffne Godot und wähle "Import" aus. Navigiere zum Ordner des geklonten Repositories und importiere das Projekt.
+1. **Godot installieren**: Lade die neueste Version der Godot Engine herunter und installiere sie. [Godot herunterladen](https://godotengine.org/download)
+2. **Repository klonen**: bash   git clone https://github.com/dein-benutzername/blackjack-godot.git
+3. **Projekt in Godot öffnen:** Öffne Godot und wähle "Import" aus. Navigiere zum Ordner des geklonten Repositories und importiere das Projekt.
 
 ## Spielanleitung
 1. Starte das Spiel durch Drücken der Play-Taste in Godot.
