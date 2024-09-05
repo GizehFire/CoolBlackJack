@@ -20,7 +20,7 @@ Die Idee für dieses Blackjack-Spiel entstand, weil es schwer ist, ein kostenfre
 ## Installation
 
 1. **Godot installieren**: Lade die neueste Version der Godot Engine herunter und installiere sie. [Godot herunterladen](https://godotengine.org/download)
-2. **Repository klonen**:  git clone https://github.com/GizehFire/CoolBlackJack.git
+2. **Repository klonen**:  git clone [CoolBlackJack](https://github.com/GizehFire/CoolBlackJack.git)
 3. **Projekt in Godot öffnen:** Öffne Godot und wähle "Import" aus. Navigiere zum Ordner des geklonten Repositories und importiere das Projekt.
 
 ## Spielanleitung
