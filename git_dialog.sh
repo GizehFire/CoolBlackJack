@@ -9,7 +9,7 @@ fi
 add_files() {
 
 # Überprüfe, ob Änderungen vorhanden sind
-    if [ -z "$(git status --short | grep -v '\.godot$' | grep -v '^\.godot/$')" ]; then
+    if [ -z "$(git status --short | grep -v '\.godot$' | grep -v '^[?][?] \.godot/$')" ]; then
         dialog --msgbox "Keine relevanten Änderungen vorhanden." 10 40
         return  # Zurück zum Hauptmenü
     fi
