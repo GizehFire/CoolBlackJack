@@ -5,20 +5,6 @@ if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
     exit 1
 fi
 
-show_changes() {
-    # Überprüfen, ob es Änderungen gibt
-    if [ -z "$(git diff --name-only --diff-filter=M)" ]; then
-        dialog --msgbox "Keine Änderungen vorhanden." 10 40
-        return
-    fi
-
-    # Sammle alle Änderungen und zeige sie in einer scrollbaren Dialogbox an
-    git diff --name-only --diff-filter=M | while read -r file; do
-        git diff "$file" > /tmp/diff_output.txt  # Schreibe die Diff-Ausgabe in eine temporäre Datei
-        dialog --clear --title "Änderungen in $file" --textbox "/tmp/diff_output.txt" 20 60
-    done
-}
-
 # Funktion zum Hinzufügen von Dateien
 add_files() {
 
@@ -71,8 +57,7 @@ while true; do
         2 "Commit erstellen" \
         3 "Änderungen pushen" \
         4 "Änderungen auflisten" \
-        5 "Letzte Änderungen anzeigen" \
-        6 "Beenden")  # Stelle sicher, dass hier die richtige Anzahl angegeben ist
+        5 "Beenden")
 
     # Überprüfe den Exit-Status des Dialogs
     exit_status=$?
@@ -86,9 +71,8 @@ while true; do
         2) commit_changes ;;
         3) push_changes ;;
         4) dialog --stdout --prgbox "git log --oneline" 20 60 ;;
-        5) show_changes ;;  # Neue Funktion aufrufen
-        6) break ;;
-        *) dialog --msgbox "Ungültige Auswahl." 10 40 ;;  # Dieser Teil tritt auf, wenn keine der oben genannten Optionen passt
+        5) break ;;
+        *) dialog --msgbox "Ungültige Auswahl." 10 40 ;;
     esac
 done
 
