@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1725630216
+icon.svg::CompressedTexture2D::2871772715623335517::1725547824::1725571504::1::::<><>::
+main.gd::GDScript::-1::1725571515::0::1::::<>Node2D<>::
+main.tscn::PackedScene::7526601832928675090::1725571515::0::1::::<><>::res://main.gd<>uid://dx253uqksq2f6::::res://media/CardFrames.tres
+readme.md::TextFile::-1::1725570029::0::1::::<><>::
+::res://addons/::1725543863
+::res://media/::1725571515
+Blackjack-Cards_M.png::CompressedTexture2D::2886996916096858841::1725547824::1725571505::1::::<><>::
+BlackjackTable.png::CompressedTexture2D::3106755331827406319::1725547824::1725571505::1::::<><>::
+CardFrames.tres::SpriteFrames::8831216241788935061::1725571515::0::1::::<><>::uid://bheqogr8p41fp::::res://media/Blackjack-Cards_M.png
