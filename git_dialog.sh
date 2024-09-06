@@ -21,23 +21,26 @@ show_changes() {
 
 # Funktion zum Hinzufügen von Dateien
 add_files() {
-
-# Überprüfe, ob Änderungen vorhanden sind
-    if [ -z "$(git status --short | grep -v '\.godot$' | grep -v '^[?][?] \.godot/$')" ]; then
+    # Überprüfe, ob relevante Änderungen vorhanden sind, ohne .godot/ und .gitignore Dateien
+    if [ -z "$(git status --short | grep -v '\.godot$' | grep -v '^[?][?] \.godot/$' | grep -v '\.gitignore$')" ]; then
         dialog --msgbox "Keine relevanten Änderungen vorhanden." 10 40
         return  # Zurück zum Hauptmenü
     fi
 
-    local files=$(git status --short | awk '{print $2}' | grep -v '\.godot$' | grep -v '^\.godot/$')
+    # Filtere geänderte Dateien, um .gitignore und .godot-Dateien auszuschließen
+    local files=$(git status --short | awk '{print $2}' | grep -v '\.godot' | grep -v '^\.godot/$' | grep -v '\.gitignore$')
     local IFS=$'\n'
     local options=()
-    
+
+    # Füge gefilterte Dateien zur Auswahl hinzu
     for file in $files; do
         options+=("$file" "" "on")
     done
     
+    # Zeige die Checkliste mit den gefilterten Dateien an
     selected_files=$(dialog --stdout --checklist "Wähle Dateien zum Hinzufügen aus:" 20 60 15 "${options[@]}")
-    
+
+    # Füge die ausgewählten Dateien hinzu, wenn welche gewählt wurden
     if [ -n "$selected_files" ]; then
         git add $selected_files
         dialog --msgbox "Dateien hinzugefügt:\n$selected_files" 10 40
@@ -45,6 +48,7 @@ add_files() {
         dialog --msgbox "Keine Dateien hinzugefügt." 10 40
     fi
 }
+
 
 # Funktion zum Erstellen eines Commits
 commit_changes() {
