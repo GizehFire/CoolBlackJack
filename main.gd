@@ -1,4 +1,5 @@
 extends Node2D
+
 var card_size = Vector2(106, 146)  # Vektor, der die Breite und Höhe jeder Karte im Sprite-Sheet definiert
 var spacing = Vector2(14, 14)  # Vektor, der den Abstand zwischen den Karten im Sprite-Sheet definiert
 
