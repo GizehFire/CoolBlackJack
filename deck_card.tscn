@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5yfpxwxy7mhu"]
+
+[ext_resource type="Texture2D" uid="uid://dra4gphcyb8yh" path="res://media/DeckCard_65x85.png" id="1_baeni"]
+
+[node name="deck_card" type="Sprite2D"]
+texture = ExtResource("1_baeni")

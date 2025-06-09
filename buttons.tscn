@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://84c42q3d4eaa"]
+
+[ext_resource type="Script" uid="uid://p1o5cdil7m13" path="res://buttons.gd" id="1_pg40h"]
+
+[node name="buttons" type="Node"]
+script = ExtResource("1_pg40h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 343.0
+offset_top = 530.0
+offset_right = 383.0
+offset_bottom = 570.0
+
+[node name="btn_start" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="btn_stop" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="btn_exit" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="btn_shuffle" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/btn_start" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="HBoxContainer/btn_stop" to="." method="_on_btn_stop_pressed"]
+[connection signal="pressed" from="HBoxContainer/btn_exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="HBoxContainer/btn_shuffle" to="." method="_on_btn_shuffle_pressed"]
