@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd778gqv5qsu2"]
+
+[ext_resource type="Script" uid="uid://du3jtwp2kgjtw" path="res://scripte/testmod.gd" id="1_c3kyi"]
+
+[node name="testmod" type="Node2D"]
+script = ExtResource("1_c3kyi")
+
+[node name="btn_okay" type="Button" parent="."]
+offset_left = 370.0
+offset_top = 303.0
+offset_right = 418.0
+offset_bottom = 334.0
+text = "Okay"
+
+[connection signal="pressed" from="btn_okay" to="." method="_on_btn_okay_pressed"]

@@ -13,7 +13,6 @@ config_version=5
 config/name="The Exp June 2025"
 run/main_scene="uid://dwb18c0rc1hhg"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
 
 [display]
 
