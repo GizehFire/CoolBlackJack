@@ -15,18 +15,52 @@ func _ready() -> void:
 	
 	# Konstante zur Auswahl eines bestimmten Karten-Frames (z. B. für Tests oder gezielte Anzeige)
 	const SELECT_CARDS: int = 7
+	
 	# Ermittelt die maximale Anzahl an Frames (Karten) in der aktuellen Animation des AnimatedSprite2D
 	var maximal_cards: int = cards.sprite_frames.get_frame_count(cards.animation)	
-	# Weist dem up_card-Sprite die Textur des Frame Nr. 7 zu (Index basiert auf SELECT_CARDS)
+	
+	# Weist dem up_card-Sprite die Textur des Frame Nr. 7 zu (Index basiert auf SELECT_CARDS)	
 	up_card.texture = cards.sprite_frames.get_frame_texture(cards.animation, SELECT_CARDS)	
+		
 	# Gibt die Anzahl der verfügbaren Karten (Frames) im Terminal aus
 	print("Anzahl der Karten: " + str(maximal_cards))
-
 	
+	####
+	# up_card.texture = cards.sprite_frames.get_frame_texture(cards.animation, 9)
+	# up_card.texture = cards.sprite_frames.get_frame_texture(cards.animation, SELECT_CARDS)	
+	var neue_karten: Array[Sprite2D]	= []
+	var deck_number: int = 9
+	
+	# 8 Klone
+	for i in range(8):
+	
+		var klon: Sprite2D = up_card.duplicate() as Sprite2D
+		
+		# Textur aus SpriteFrames holen
+		klon.texture = cards.sprite_frames.get_frame_texture(cards.animation, deck_number)
+		
+		# nächste Karte
+		deck_number += 1
+		
+		# Position berechnen (Start + Versatz)
+		klon.position = Vector2(350 + (i + 1) * 20, 250)
+		
+		# sichtbar machen
+		add_child(klon)
+		
+		# im Array speichern
+		neue_karten.append(klon)
+	
+	print("Es wurden ", neue_karten.size(), " Karten erzeugt.")
+	print(neue_karten)
+	
+	####
+		
 	my_deck = Utils.deck_shuffle() # Nur einmal mischen zu Beginn
 	# start_new_round()
-	
+
 	actions = {
+		
 		"Exit":    get_tree().quit,
 		"Start":   cards.play.bind("default"),
 		"Stop":    cards.stop,
@@ -38,7 +72,7 @@ func _ready() -> void:
 func set_shuffle_card(deck: Array[int]) -> Array[int]:
 	# reine Logik
 	
-	var idx : Dictionary = Utils.get_card_indices(deck)
+	var idx : Dictionary = Utils.get_card_indices(my_deck)
 	var anim := cards.animation
 	
 	first_card.texture  = cards.sprite_frames.get_frame_texture(anim, idx["first"])
@@ -50,7 +84,7 @@ func set_shuffle_card(deck: Array[int]) -> Array[int]:
 	return deck
 
 func start_new_round() -> void:
-	if my_deck.size() < 4:		
+	if my_deck.size() < 4:	
 		my_deck = Utils.deck_shuffle()
 		print(" - New Mix - ")
 	set_shuffle_card(my_deck)
