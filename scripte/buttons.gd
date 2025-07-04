@@ -7,7 +7,7 @@ signal pressed_button (item:String)
 @onready var btn_exit: Button = $HBoxContainer/btn_exit
 @onready var btn_shuffle: Button = $HBoxContainer/btn_shuffle
 @onready var btn_select_card: Button = $HBoxContainer/btn_select_card
-
+@onready var btn_hits: Button = $HBoxContainer/btn_hits
 
 func _ready() -> void:
 	
@@ -16,6 +16,11 @@ func _ready() -> void:
 	btn_exit.text="Exit"
 	btn_shuffle.text="Shuffle"
 	btn_select_card.text="ShowSelectCard"
+	btn_hits.text="Ziehen"
+	
+	# Button vorerst deaktivieren und ausblenden
+	btn_select_card.disabled=true
+	btn_select_card.visible=false
 
 func _on_btn_exit_pressed() -> void:
 	emit_signal("pressed_button", btn_exit.text)
@@ -31,3 +36,6 @@ func _on_btn_shuffle_pressed() -> void:
 
 func _on_btn_select_card_pressed() -> void:
 	emit_signal("pressed_button", btn_select_card.text)
+
+func _on_btn_hits_pressed() -> void:
+	emit_signal("pressed_button", btn_hits.text)

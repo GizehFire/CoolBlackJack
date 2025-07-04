@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwb18c0rc1hhg"]
 
-[ext_resource type="Script" uid="uid://df6xfqcfwihw2" path="res://scripte/main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b58m01nfrseoh" path="res://scripte/main.gd" id="1_0ha60"]
 [ext_resource type="Texture2D" uid="uid://ba5ydqeiiaodf" path="res://media/Blackjack-Felt-Background_800x600.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c5yfpxwxy7mhu" path="res://scene/deck_card.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://84c42q3d4eaa" path="res://scene/buttons.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c1b2yls43xb7l" path="res://scene/cards.tscn" id="4_1bvp3"]
 
 [node name="main" type="Node"]
-script = ExtResource("1_ig7tw")
+script = ExtResource("1_0ha60")
 
 [node name="hintergrund" type="Sprite2D" parent="."]
 position = Vector2(400, 300)

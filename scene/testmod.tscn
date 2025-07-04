@@ -11,3 +11,7 @@ offset_top = 303.0
 offset_right = 418.0
 offset_bottom = 334.0
 text = "Okay"
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
